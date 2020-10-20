@@ -1,0 +1,225 @@
+@import "nullstyle.scss";
+//===========================================================================
+.wraper{ //Делаем Фулскрин
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.header__greyBac{
+	display: none;
+	@media (max-width: 880px){ 
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		opacity: 0.1;
+		z-index: 1;
+	}
+}
+header{
+	min-height: 100vh; //Важно для Фулскрин
+	display: flex; //Важно для Фулскрин
+	width: 100%; //Лечим Фулскрин для Эксплорер
+	background: url('../img/Header/01.webp') no-repeat center/cover;
+	z-index: 1;
+}
+.header__meny{
+	@media (max-width: 880px){
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	ul{
+		display: flex;
+		justify-content: flex-end;
+		margin: 0 0 78px 0;
+		padding: 24px 0 0 0;
+		@media (max-width: 880px){ 
+			flex-direction: column;
+			align-items: center;
+			padding: 300px 0 0 0;
+		}
+	}
+	li{
+		&:nth-child(2){
+			margin: 0 0 0 72px;
+			@media (max-width: 880px){ 
+				margin: 0 0 0 0;
+			}
+		}
+		&:nth-child(3){
+			margin: 0 0 0 39px;
+			@media (max-width: 880px){ 
+				margin: 0 0 0 0;
+			}
+		}
+		&:nth-child(4){
+			margin: 0 7px 0 26px;
+			@media (max-width: 880px){ 
+				margin: 0 0 0 0;
+			}
+		}
+	}
+	a{
+		font-size: 24px;
+		font-weight: 100;
+		color: #afc67b;
+		text-transform: uppercase;
+		transition: 0.5s ease;
+		&:hover{
+			color: #a9c533;
+			text-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+		}
+		@media (max-width: 880px){ 
+			font-size: 36px;
+			margin: 0 0 50px 0;
+		}
+	}
+}
+.logo{
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 295px 112px 0;
+	@media (max-width: 880px){ 
+		padding: 20px 0 0 0;
+		margin: auto 30px;
+		justify-content: center;
+		z-index: 10;
+	}
+	a{
+		z-index: 9;
+	}
+}
+.title{
+	margin: 0 0px 147px 0;
+	@media (max-width: 880px){
+		margin: 50px 0 100px 0;
+	 }
+	 @media (max-width: 500px){
+		margin: 90px 0 100px 0;
+	 }
+	h1, h2{
+		display: flex;
+		justify-content: flex-end;
+		@media (max-width: 880px){ 
+			justify-content: center;
+		}
+	}
+	h1{
+		font-size: 57px;
+		color: #afc67b;
+		text-transform: uppercase;
+		@media (max-width: 880px){ 
+			margin: 0 0 0px 0;
+			z-index: 2;
+		}
+		@media (max-width: 500px){ 
+			font-size: 38px;
+		}
+	}
+	h2{
+		font-size: 78px;
+		color: #9baf6d;
+		font-weight: 700;
+		text-transform: uppercase;
+		@media (max-width: 500px){ 
+			font-size: 50px;
+			z-index: 2;
+		}
+	}
+}
+.header__button{
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 42px 20px 0;
+	a{
+		font-size: 49px;
+		color: #afc67b;
+		text-transform: uppercase;
+		padding: 30px 27px 29px 27px;
+		background-color: #5d6942;
+		transition: 0.6s ease;
+		@media (max-width: 550px){ 
+			font-size: 35px;
+			z-index: 2;
+		}
+		&:hover{
+			color: #5d6942;
+			background-color: #afc67b;
+			box-shadow: 0 0px 30px rgba(0, 0, 0, 0.5);
+		}
+	}
+	@media (max-width: 880px){ 
+		justify-content: center;
+		margin: 0 0 0px 0;
+	}
+}
+//? Меню Бургер========================================================
+.meny__burger{
+	display: none;
+}
+@media (max-width: 880px){
+	body.lock{
+		overflow: hidden;
+	}
+	.meny__burger{
+		display: block;
+		position: relative;
+		float: right;
+		width: 30px; //длина линии
+		height: 20px;
+		z-index: 10;
+		margin: 24px 0 0 0;
+	}
+	.meny__burger span{
+		position: absolute;
+		background-color: #afc67b; //цвет средней линии (бургера)
+		left: 0%;
+		width: 100%;
+		height: 2px;
+		top: 9px;
+		transition: 0.3s ease;
+	}
+	.meny__burger:before,
+	.meny__burger:after{
+		content: '';
+		background-color: #afc67b;//цвет первой и последней линии (бургера)
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		right: 0%;
+	}
+	.meny__burger:before{
+		top: 0;
+		transition: 0.3s ease;
+	}
+	.meny__burger:after{
+		bottom: 0;
+		transition: 0.3s ease;
+	}
+	.header__meny{
+		position: fixed;
+		left: -100%; //появление меню с права 
+		width: 100%;
+		height: 100%;
+		background-color: #666;
+		z-index: 9;
+		transition: 0.6s ease;
+		overflow: auto;
+	}
+	.meny__burger.active:before{//поворот верхней линии при нажатии 
+		transform:rotate(45deg);
+		top: 9px;
+	}
+	.meny__burger.active:after{//поворот нижней линии при нажатии 
+		transform:rotate(-45deg);
+		bottom: 9px;
+	}
+	.meny__burger.active span{
+		transform:scale(0);
+	}
+	.header__meny.active{
+		left: 0;//появление меню с права 
+	}
+ }
