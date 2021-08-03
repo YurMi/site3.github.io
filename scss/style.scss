@@ -353,6 +353,8 @@
 }
 .Discover__circle{
 	position: relative;
+	display: flex;
+	align-items: flex-start;
 	min-width: 81px;
 	min-height: 81px;
 	border-radius: 50%;
@@ -568,8 +570,8 @@
 }
 .discover__content{
 	display: flex;
-	flex: 0 0 33,333%;
 	justify-content: space-between;
+	margin: 0px -8px;
 	@media (max-width: 1100px){
 		flex-direction: column;
 		align-items: center;
@@ -578,8 +580,9 @@
 .discover__card{
 	display: flex;
 	flex-direction: column;
-	flex: 0 0 339px;
+	flex: 0 1 33.333%;
 	transition: .6s ease;
+	padding: 0px 8px;
 	@media (max-width: 1100px){
 		display: block;
 		margin: 0px 0px 30px 0px;
@@ -593,6 +596,9 @@
 }
 
 .info__dis{
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
 	background-color: #e7e7e7;
 	padding: 24px 0px 26px 21px;
 	&--title{
@@ -611,6 +617,7 @@
 		font-size: 17px;
 		color: #4f4e4e;
 		margin: 0px 0px 26px 0px;
+		flex: 1 1 auto;
 	}
 	&--btn{
 		a{
